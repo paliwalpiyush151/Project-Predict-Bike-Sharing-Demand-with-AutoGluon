@@ -14,7 +14,7 @@ Five different kinds of model training experiments were performed on the data.
 **Observation:** I was able to make first submission from the raw data provided without any error while makeing submission of Exp.2,3,4,5, I got error during submission
 since kaggle was not accepting negetive values. 
 
-**Changes:**I made changes by assigning negetive values of prediction to zero. After this, I was able to make kaggle submission.
+**Changes:** I made changes by assigning negetive values of prediction to zero. After this, I was able to make kaggle submission.
 
 ### What was the top ranked model that performed?
 The `top-ranked model` was the `(add features) model` named `WeightedEnsemble_L3`, with a **validation RMSE score** of **33.9600** and the best **Kaggle score** of **0.4645 (on test dataset)**. This model was developed by training on data obtained using exploratory data analysis (EDA) and feature engineering without the use of a hyperparameter optimization routine. Upon hyperparameter-optimization, some models did show improved RMSE scores on validation data; however this model delivered the best performance on unseen test dataset. Note that many models delivered competitive performance, hence the selection was done considering both RMSE (cross-validation) and Kaggle (test data) scores respectively.
@@ -28,7 +28,6 @@ The `top-ranked model` was the `(add features) model` named `WeightedEnsemble_L3
 - Independent features `season` and `weather` were initially read as `integer`. Since these are categorical variables, they were transformed into `category` data type.
 - The data for `year`, `month`, `day` *(dayofweek)* and `hour` were extracted as distinct independent features from the `datetime` feature using feature extraction. Upon feature extraction, `datetime` feature was dropped. 
 - After probing and considering the features, `casual` and `registered`, it was noticed that the RMSE scores improved significantly during cross-validation and these independent features were highly co-related to the target variable `count`. However, the features `casual` and `registered` are only present in the train dataset and absent in the test data; hence, these features were ignored/dropped during model training
-- Another categorical feature `day_type` was added based on `holiday` and `workingday` feature. It was defined to effectively segregate "weekday", "weekend" and "holiday" categories.
 - Further, data visualization was conducted to derive insights from the features.
 
 ### How much better did your model preform after adding additional features and why do you think that is?
